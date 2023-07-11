@@ -1,29 +1,97 @@
-import { StyleSheet, View, Image } from "react-native";
-import products from "../data/products";
+import {
+    StyleSheet,
+    View,
+    Image,
+    Dimensions,
+    FlatList,
+    Text,
+    ScrollView,
+    Pressable,
+  } from "react-native";
+  import products from "../data/products"
+  import { useNavigation } from '@react-navigation/native';
 
-const ProductDetailsScreen = () => {
-  const product = products[0];
+  const { width } = Dimensions.get("window");
 
-  return (
-    <View>
-      {/* Image Carousel */}
-      <Image
-        source={{ uri: product.images[0] }}
-        style={{ width: "100%", aspectRatio: 1 }}
-      />
-      {/* Title */}
-
-      {/* Price */}
-
-      {/* Description */}
-
-      {/* Add to cart button */}
-
-      {/* Navigation icon */}
-    </View>
-  );
-};
-
-const styles = StyleSheet.create({});
-
-export default ProductDetailsScreen;
+  const ProductDetails = () =>{
+      const product = products[1];
+      const navigation = useNavigation();
+      const addToCart=()=>{
+        navigation.navigate('Cart')
+      }
+      return(
+          <View >
+            <ScrollView>
+              {/* Image Carousel */}
+              <FlatList
+                data={product.images}
+                keyExtractor={(_,index)=>index.toString()}
+                renderItem={({ item }) => (
+                  <Image source={{ uri: item }} style={{ width, aspectRatio: 1,resizeMode:'cover' }} />
+                )}
+                horizontal
+                pagingEnabled
+                showsHorizontalScrollIndicator={false}
+              />
+      
+              <View style={{ padding: 20 }}>
+                {/* Title */}
+                <Text style={styles.title}>{product.name}</Text>
+      
+                {/* Price */}
+                <Text style={styles.price}>$ {product.price}</Text>
+      
+                {/* Description */}
+                <Text style={styles.description}>{product.description}</Text>
+              </View>
+            </ScrollView>
+            {/* Add to cart button */}
+            <Pressable onPress={addToCart} style = {styles.button}>
+                  <Text style = {styles.buttonText}>Add to Cart</Text>
+            </Pressable>
+      
+            {/* Navigation icon */}
+          </View>
+      )
+  }
+    
+  
+  const styles = StyleSheet.create({
+    
+    title: {
+      fontSize: 34,
+      fontWeight: "500",
+      marginVertical: 10,
+    },
+    price: {
+      fontWeight: "500",
+      fontSize: 18,
+      letterSpacing: 2,
+    },
+    description: {
+      marginVertical: 10,
+      fontSize: 18,
+      lineHeight: 30,
+      fontWeight: "300",
+      paddingBottom:80,
+    },
+    button:{
+      position:'absolute',
+      backgroundColor:'black',
+      bottom:30,
+      width:width*0.9,
+      alignSelf:'center',
+      padding:20,
+      borderRadius:100,
+      alignItems:'center',
+      elevation:5,
+    },
+    buttonText:{
+      color:'white',
+      fontWeight:'500',
+      fontSize: 16,
+    }
+  });
+  
+  export default ProductDetails;
+  

@@ -1,4 +1,4 @@
-# Shop
+# Shop-App Template
 
 A Template Ecommerce App built with React Native, Expo and Redux.
 

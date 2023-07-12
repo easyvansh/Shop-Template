@@ -2,15 +2,13 @@ import { StyleSheet, Pressable, Text, View, Image } from "react-native";
 // import products from "../data/products";
 import { FlatList } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { useDispatch, useSelector } from 'react-redux';
-import { productsSlice } from '../store/productsSlice';
+import { useDispatch, useSelector } from "react-redux";
+import { productsSlice } from "../store/productsSlice";
 
 export default function App() {
   const products = useSelector((state) => state.products.products);
 
   const dispatch = useDispatch();
-
-  
 
   const navigation = useNavigation();
   return (

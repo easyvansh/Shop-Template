@@ -16,13 +16,14 @@ const { width } = Dimensions.get("window");
 
 const ProductDetails = () => {
   const product = useSelector((state) => state.products.selectedProduct);
-  const dispatch = useDispatch();
-  const navigation = useNavigation();
-  
 
-const addToCart = () => {
-  dispatch(cartSlice.actions.addCartItem({product}))
-}
+  const navigation = useNavigation();
+
+  const dispatch = useDispatch();
+
+  const addToCart = () => {
+    dispatch(cartSlice.actions.addCartItem({ product }));
+  };
   return (
     <View>
       <ScrollView>

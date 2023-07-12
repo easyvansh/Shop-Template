@@ -5,14 +5,14 @@ import HomePage from "./app/screens/HomePage";
 import ProductDetails from "./app/screens/ProductDetails";
 import ShoppingCart from "./app/screens/ShoppingCart";
 import { Pressable, Text } from "react-native";
-import {FontAwesome5} from '@expo/vector-icons'
-import { useSelector } from 'react-redux';
-import { selectNumberOfItems } from './app/store/cartSlice';
+import { FontAwesome5 } from "@expo/vector-icons";
+import { useSelector } from "react-redux";
+import { selectNumberOfItems } from "./app/store/cartSlice";
 
 const Stack = createStackNavigator();
 
 const AppNavigator = () => {
-  const numberOfItems = useSelector(selectNumberOfItems)
+  const numberOfItems = useSelector(selectNumberOfItems);
   return (
     <NavigationContainer>
       <Stack.Navigator

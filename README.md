@@ -9,9 +9,10 @@ The template uses three main screens:
 
 Currently Working On:
 
-    - Creating Cart Functionality
-    - State Management with Redux Toolkit for Cart Functionality
+    - Creating Backend with Node.js and Express js
+    - Fetch Products from Backend API
     - Store Products on Firestore Database
+    - State Management with Redux Toolkit for Backend Functionality
     
 <!-- The optional other applications are:
 

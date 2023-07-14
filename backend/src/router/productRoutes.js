@@ -1,7 +1,13 @@
 const express = require('express');
 const router = express.Router();
+const {getAllProducts} = require('../database/products')
 
-router.get('/', (req, res) => {
+
+router.get('/', async(req, res) => {
+  const products = await getAllProducts();
+  products.forEach(doc => {
+    console.log(doc.id, '=>', doc.data());
+  });
   res.send('Get all products');
 });
 

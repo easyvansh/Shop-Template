@@ -7,7 +7,7 @@ const PORT = 3000;
 app.use('/products',productRoutes);
 
 app.get('/', (req, res) => {
-	res.send("<h2>Hello world!</h2>");
+	res.send("<h1>Hello world!</h1>");
 });
 
 app.listen(PORT, () => {

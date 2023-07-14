@@ -29,7 +29,7 @@ Currently Working On:
 ## Installation
 
 
-*  `git clone https://github.com/easyvansh/Shop.git`
+*  `git clone https://github.com/easyvansh/Shop-Template.git`
 *  `npm install `
 *  `npx expo start`
 

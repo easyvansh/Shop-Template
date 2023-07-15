@@ -8,6 +8,9 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/:productId", async (req, res) => {
+  // Redux toolkit query uses cache so the same request is not 
+  // requested again and again to improve the performance of the application
+  console.log("Query Product with Id :",req.params.productId);
   const product = await getProduct(req.params.productId);
   // console.log(product);
   if (!product) {

@@ -11,11 +11,15 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 import { cartSlice } from "../store/cartSlice";
+import { useGetProductQuery } from "../store/apiSlice";
+import { ActivityIndicator } from "react-native";
 
 const { width } = Dimensions.get("window");
 
-const ProductDetails = () => {
-  const product = useSelector((state) => state.products.selectedProduct);
+const ProductDetails = ({route}) => {
+  const id = route.params.id
+  const { data, error, isLoading } = useGetProductQuery(id);
+  // const product = useSelector((state) => state.products.selectedProduct);
 
   const navigation = useNavigation();
 
@@ -24,6 +28,16 @@ const ProductDetails = () => {
   const addToCart = () => {
     dispatch(cartSlice.actions.addCartItem({ product }));
   };
+  if (isLoading) {
+    return <ActivityIndicator />;
+  }
+  
+  if (error) {
+    return <Text>{error.error}</Text>;
+  }
+  
+  const product = data.data;
+  
   return (
     <View>
       <ScrollView>

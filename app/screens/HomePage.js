@@ -23,15 +23,14 @@ export default function App() {
   }
 
   const products = data.data;
-
   return (
     <FlatList
       data={products}
       renderItem={({ item }) => (
         <Pressable
           onPress={() => {
-            dispatch(productsSlice.actions.setSelectedProduct(item.id));
-            navigation.navigate("Product Details");
+            // dispatch(productsSlice.actions.setSelectedProduct(item.id));
+            navigation.navigate("Product Details",{id:item.id});
           }}
           style={styles.itemContainer}
         >

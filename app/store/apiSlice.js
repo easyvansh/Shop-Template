@@ -21,7 +21,7 @@ export const apiSlice = createApi({
       }),
     }),
     getOrder: builder.query({
-      query: (ref) => `order/${ref}`,
+      query: (ref) => `orders/${ref}`,
     }),
   }),
 });

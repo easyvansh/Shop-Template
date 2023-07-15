@@ -7,9 +7,8 @@ const getAllProducts = async () => {
 };
 
 const getProduct = async (id) => {
-  // const ids = snapshot.docs.map((doc)=>doc.id)
-  const product = db.products.doc(id);
-  return await product.get().data();
+  const product = await db.products.doc(id).get();
+  return await product.data();
 };
 
 module.exports = {

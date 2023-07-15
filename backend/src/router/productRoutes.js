@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
 
 router.get("/:productId", async (req, res) => {
   const product = await getProduct(req.params.productId);
-  console.log(product);
+  // console.log(product);
   if (!product) {
     res.status(404).send({ status: "FAILED", error: "Product not found" });
     return;

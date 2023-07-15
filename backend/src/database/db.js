@@ -1,7 +1,9 @@
-const {db} = require('../firebase.js')
+const { db } = require("../firebase.js");
 
-const products =  db.collection('products');
+const products = db.collection("products");
+const orders = db.collection("orders");
 
 module.exports = {
-    products
-}
+  products,
+  orders,
+};

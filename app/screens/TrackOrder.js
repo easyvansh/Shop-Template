@@ -14,7 +14,7 @@ import ViewProduct from '../components/ViewProduct';
     const [ref, setRef] = useState('');
   
     const { data, isLoading, error } = useGetOrderQuery(ref);
-    
+   
     return (
       <View style={styles.root}>
         <TextInput
@@ -26,8 +26,8 @@ import ViewProduct from '../components/ViewProduct';
         {isLoading && <ActivityIndicator />}
         {data?.status !== 'OK' && <Text>Order not found</Text>}
         {/* {data?.status === 'OK' && <Text>Order: {JSON.stringify(data.data)}</Text>} */}
-        {data?.status === 'OK'  &&
-        <ViewProduct route = {data.data.items[0].id}/>}
+        {data?.status === 'OK'  && <ViewProduct route = {data.data}/>
+        }
       </View>
     );
     

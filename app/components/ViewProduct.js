@@ -16,8 +16,7 @@ import {
   
   const { width } = Dimensions.get("window");
 function ViewProduct({route}) {
-    const id = route
-    console.log(id)
+    const id = route.order[0].id;
     const { data, error, isLoading } = useGetProductQuery(id);
     // const product = useSelector((state) => state.products.selectedProduct);
     

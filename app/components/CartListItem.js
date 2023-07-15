@@ -8,7 +8,7 @@ const CartListItem = ({ cartItem }) => {
   const increaseQuantity = () => {
     dispatch(
       cartSlice.actions.changeQuantity({
-        productId: cartItem.product.id,
+        productId: cartItem.id,
         amount: 1,
       })
     );
@@ -17,7 +17,7 @@ const CartListItem = ({ cartItem }) => {
   const decreaseQuantity = () => {
     dispatch(
       cartSlice.actions.changeQuantity({
-        productId: cartItem.product.id,
+        productId: cartItem.id,
         amount: -1,
       })
     );

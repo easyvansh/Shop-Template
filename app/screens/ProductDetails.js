@@ -25,9 +25,7 @@ const ProductDetails = ({route}) => {
 
   const dispatch = useDispatch();
 
-  const addToCart = () => {
-    dispatch(cartSlice.actions.addCartItem({ product }));
-  };
+ 
   if (isLoading) {
     return <ActivityIndicator />;
   }
@@ -37,7 +35,12 @@ const ProductDetails = ({route}) => {
   }
   
   const product = data.data;
-  
+  // product
+  // console.log(product)
+
+  const addToCart = () => {
+    dispatch(cartSlice.actions.addCartItem({ product,id }));
+  };
   return (
     <View>
       <ScrollView>

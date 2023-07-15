@@ -4,13 +4,26 @@ import { FlatList } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch, useSelector } from "react-redux";
 import { productsSlice } from "../store/productsSlice";
+import { useGetProductsQuery } from "../store/apiSlice";
+import { ActivityIndicator } from "react-native";
 
 export default function App() {
-  const products = useSelector((state) => state.products.products);
-
+  // const products = useSelector((state) => state.products.products);
   const dispatch = useDispatch();
 
   const navigation = useNavigation();
+
+  const { data, error, isLoading } = useGetProductsQuery();
+
+  if (isLoading) {
+    return <ActivityIndicator />;
+  }
+  if (error) {
+    return <Text>{error.error}</Text>;
+  }
+
+  const products = data.data;
+
   return (
     <FlatList
       data={products}

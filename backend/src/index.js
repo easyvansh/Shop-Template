@@ -4,6 +4,8 @@ const orderRoutes = require("./router/orderRoutes");
 const bodyParser = require("body-parser");
 const app = express();
 const PORT = 3000;
+let cors = require("cors");
+app.use(cors());
 
 app.use(bodyParser.json());
 app.use("/products", productRoutes);

@@ -2,29 +2,23 @@
 
 A Template Ecommerce App built with React Native, Expo and Redux.
 
-The template uses three main screens: 
+The template uses four main screens: 
 - `Product Listing`
 - `Product Description`
 - `Cart`
+- `Track Order`
 
 Currently Working On:
 
-    - Creating Backend with Node.js and Express js
-    - Fetch Products from Backend API
-    - Store Products on Firestore Database
-    - State Management with Redux Toolkit for Backend Functionality
-    
-<!-- The optional other applications are:
+    - Stripe Backend Payment Integration
+ 
+The applications can:
 
-    - Analytics
-    - Discounts
-    - Legal
-    - Hero
-    - Nodes Plus
-    - Store
-    - Subscribers
-    - Customer care
-   -->
+    - Fetch Products from Database
+    - Update Products on Database
+    - Create Order on the Database
+    - Manage State of Cart
+  
 
 ## Installation
 
